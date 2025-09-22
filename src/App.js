@@ -129,8 +129,6 @@ export default function App() {
                   : "bg-green-100 text-gray-800"
               }`}
               style={{
-                wordWrap: "break-word",
-                whiteSpace: "pre-wrap",
                 padding: "10px 20px",
                 margin: "8px 0",
                 borderRadius: "10px",
