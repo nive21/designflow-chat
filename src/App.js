@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -96,7 +97,7 @@ export default function App() {
         backgroundColor: "#F2FFE0",
         borderRadius: "15px",
         height: "100%",
-        padding: "40px",
+        padding: "40px 10vw",
       }}
     >
       <motion.h1
@@ -128,12 +129,13 @@ export default function App() {
                   : "bg-green-100 text-gray-800"
               }`}
               style={{
-                maxWidth: "80%",
                 wordWrap: "break-word",
-                padding: "10px 5px",
+                whiteSpace: "pre-wrap",
+                padding: "10px 20px",
                 margin: "8px 0",
                 borderRadius: "10px",
                 display: "inline-flex",
+                flexDirection: "column",
                 alignContent: msg.sender === "user" ? "right" : "left",
                 textAlign: msg.sender === "user" ? "right" : "left",
                 border:
@@ -144,7 +146,7 @@ export default function App() {
                   msg.sender === "user" ? "#ffffff40" : "rgb(237, 255, 212)",
               }}
             >
-              {msg.text}
+              <ReactMarkdown>{msg.text}</ReactMarkdown>
             </motion.div>
             {msg.image && (
               <motion.img
@@ -223,12 +225,12 @@ export default function App() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your request..."
           style={{
-            padding: "5px 10px",
+            padding: "5px 16px",
             marginRight: "10px",
             height: "40px",
             borderRadius: "10px",
             border: "1px solid #fff",
-            width: "70%",
+            width: `calc(100% - 100px)`,
           }}
         />
         <button
